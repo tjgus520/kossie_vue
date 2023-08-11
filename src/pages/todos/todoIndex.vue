@@ -2,8 +2,8 @@
   <!-- <div v-show="toggle" class="">true</div>
   <div v-show="!toggle" class="">false</div>
   <button @click="onToggle" class="btn btn-primary">토글</button> -->
-  <router-view />
-  <div class="container">
+
+  <div>
     <h2>To-Do List</h2>
     <input type="text" v-model="searchText" class="form-control" placeholder="Search" @keyup.enter="searchTodo" />
 
@@ -26,6 +26,7 @@
     </nav>
     <!-- todos 보내주기  -->
   </div>
+  <Toast />
 </template>
 
 <script>
@@ -33,11 +34,13 @@ import { computed, ref, watchEffect, watch } from "vue";
 import TodoSimpleForm from "@/components/TodoSimpliForm.vue";
 import TodoList from "@/components/TodoList.vue";
 import axios from "axios";
+import Toast from "@/components/ToastPage.vue"; // Toast 컴포넌트의 경로에 맞게 수정
 
 export default {
   components: {
     TodoSimpleForm,
     TodoList,
+    Toast,
   },
 
   setup() {
